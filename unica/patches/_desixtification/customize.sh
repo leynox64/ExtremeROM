@@ -1,4 +1,4 @@
-if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "qssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "essi" ]]; then
+if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "qssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" ]]; then
     echo "Target device with 32-Bit HALs detected! Patching..."
 
     ADD_TO_WORK_DIR "dm3qxxx" "system" "system/lib" 0 0 644 "u:object_r:system_lib_file:s0"
