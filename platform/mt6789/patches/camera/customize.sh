@@ -72,14 +72,14 @@ do
 done
 
 BLOBS_LIST="
-libarcsoft_photoeditor.arcsoft.so
-libbeautyshot.arcsoft.so
-libface_landmark.arcsoft.so
-libFacialAttributeDetection.arcsoft.so
-libhigh_dynamic_range.arcsoft.so
-liblow_light_hdr.arcsoft.so
-libsupernight_auto_raw.arcsoft.so
-libsupernight_raw.arcsoft.so
+system/lib64/libarcsoft_photoeditor.arcsoft.so
+system/lib64/libbeautyshot.arcsoft.so
+system/lib64/libface_landmark.arcsoft.so
+system/lib64/libFacialAttributeDetection.arcsoft.so
+system/lib64/libhigh_dynamic_range.arcsoft.so
+system/lib64/liblow_light_hdr.arcsoft.so
+system/lib64/libsupernight_auto_raw.arcsoft.so
+system/lib64/libsupernight_raw.arcsoft.so
 "
 for blob in $BLOBS_LIST
 do
