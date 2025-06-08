@@ -274,6 +274,123 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     ADD_JAR_TO_CLASSPATH "bootclasspath" "DEX2OATBOOTCLASSPATH" "/system_ext/framework/mediatek-ims-base.jar"
 
     SET_METADATA "system" "system/framework/framework-res.apk" 0 0 644 "u:object_r:system_mtk_pmb_file:s0"
+
+    # Set MSSI Props
+    SET_PROP "system" "ro.build.product" "mssi"
+    SET_PROP "system" "ro.product.system.device" "mssi"
+    SET_PROP "system_ext" "ro.product.system_ext.device" "mssi"
+    SET_PROP "product" "ro.product.product.device" "mssi"
+
+    # Remove Qualcomm Props
+    SET_PROP "system" "rild.libpath" --delete
+    SET_PROP "system" "ril.subscription.types" --delete
+    SET_PROP "system" "DEVICE_PROVISIONED" --delete
+    SET_PROP "system" "dalvik.vm.heapsize" --delete
+    SET_PROP "system" "dev.pm.dyn_samplingrate" --delete
+    SET_PROP "system" "qcom.hw.aac.encoder" --delete
+    SET_PROP "system" "persist.vendor.cne.feature" --delete
+    SET_PROP "system" "media.stagefright.enable-player" --delete
+    SET_PROP "system" "media.stagefright.enable-http" --delete
+    SET_PROP "system" "media.stagefright.enable-aac" --delete
+    SET_PROP "system" "media.stagefright.enable-qcp" --delete
+    SET_PROP "system" "media.stagefright.enable-fma2dp" --delete
+    SET_PROP "system" "media.stagefright.enable-scan" --delete
+    SET_PROP "system" "media.stagefright.thumbnail.prefer_hw_codecs" --delete
+    SET_PROP "system" "mmp.enable.3g2" --delete
+    SET_PROP "system" "media.aac_51_output_enabled" --delete
+    SET_PROP "system" "vendor.mm.enable.qcom_parser" --delete
+    SET_PROP "system" "ro.bluetooth.library_name" --delete
+    SET_PROP "system" "persist.vendor.btstack.aac_frm_ctl.enabled" --delete
+    SET_PROP "system" "persist.rmnet.data.enable" --delete
+    SET_PROP "system" "persist.data.wda.enable" --delete
+    SET_PROP "system" "persist.data.df.dl_mode" --delete
+    SET_PROP "system" "persist.data.df.ul_mode" --delete
+    SET_PROP "system" "persist.data.df.agg.dl_pkt" --delete
+    SET_PROP "system" "persist.data.df.agg.dl_size" --delete
+    SET_PROP "system" "persist.data.df.mux_count" --delete
+    SET_PROP "system" "persist.data.df.iwlan_mux" --delete
+    SET_PROP "system" "persist.data.df.dev_name" --delete
+    SET_PROP "system" "sys.qca1530" --delete
+    SET_PROP "system" "persist.debug.coresight.config" --delete
+    SET_PROP "system" "persist.vendor.radio.atfwd.start" --delete
+    SET_PROP "system" "qemu.hw.mainkeys" --delete
+    SET_PROP "system" "vendor.camera.aux.packagelist" --delete
+    SET_PROP "system" "persist.vendor.camera.privapp.list" --delete
+    SET_PROP "system" "debug.stagefright.ccodec" --delete
+    SET_PROP "system" "ro.media.recorder-max-base-layer-fps" --delete
+    SET_PROP "system" "ro.charger.enable_suspend" --delete
+    SET_PROP "system" "arm64.memtag.process.system_server" --delete
+    SET_PROP "system" "ro.launcher.blur.appLaunch" --delete
+    SET_PROP "system" "ro.bluetooth.finder.supported" --delete
+    SET_PROP "system" "ro.vendor.qti.va_aosp.support" --delete
+
+    #Add Mediatek Props
+    SET_PROP "system" "Build.BRAND" "MTK"
+    SET_PROP "system" "debug.sf.enable_gl_backpressure" "0"
+    SET_PROP "system" "debug.sf.enable_transaction_tracing" "false"
+    SET_PROP "system" "debug.sf.predict_hwc_composition_strategy" "0"
+    SET_PROP "system" "debug.sf.treat_170m_as_sRGB" "1"
+    SET_PROP "system" "debug.stagefright.c2inputsurface" "-1"
+    SET_PROP "system" "media.stagefright.thumbnail.prefer_hw_codecs" "true"
+    SET_PROP "system" "mediatek.wlan.ctia" "0"
+    SET_PROP "system" "persist.log.tag.BufferQueueDump" "I"
+    SET_PROP "system" "persist.log.tag.BufferQueueProducer" "I"
+    SET_PROP "system" "persist.log.tag.GraphicBuffer" "I"
+    SET_PROP "system" "persist.log.tag.SurfaceControl" "I"
+    SET_PROP "system" "persist.sys.fuse.passthrough.enable" "true"
+    SET_PROP "system" "persist.vendor.mdlog.flush_log_ratio" "0"
+    SET_PROP "system" "persist.vendor.mtk.vilte.enable" "1"
+    SET_PROP "system" "persist.vendor.pco5.radio.ctrl" "0"
+    SET_PROP "system" "persist.vendor.pms_removable" "1"
+    SET_PROP "system" "persist.vendor.vilte_support" "1"
+    SET_PROP "system" "persist.vendor.vzw_device_type" "0"
+    SET_PROP "system" "persist.vendor.wfc.sys_wfc_support" "1"
+    SET_PROP "system" "qemu.hw.mainkeys" "0"
+    SET_PROP "system" "ro.audio.flinger_standbytime_ms" "1000"
+    SET_PROP "system" "ro.audio.ihaladaptervendorextension_enabled" "true"
+    SET_PROP "system" "ro.audio.silent" "0"
+    SET_PROP "system" "ro.audio.usb.period_us" "16000"
+    SET_PROP "system" "ro.base_build" "noah"
+    SET_PROP "system" "ro.config.per_app_memcg" "false"
+    SET_PROP "system" "ro.iorapd.enable" "false"
+    SET_PROP "system" "ro.kernel.qemu" "0"
+    SET_PROP "system" "ro.kernel.zio" "38,108,105,16"
+    SET_PROP "system" "ro.llndk.api_level" "202404"
+    SET_PROP "system" "ro.logd.auditd.events" "false"
+    SET_PROP "system" "ro.logd.auditd.main" "false"
+    SET_PROP "system" "ro.mediatek.version.branch" "alps-mp-v0.mssi1.tc10sp"
+    SET_PROP "system" "ro.mediatek.version.build.branch" ""
+    SET_PROP "system" "ro.mediatek.version.release" "alps-mp-v0.mp1.tc10sp-V1.61.1"
+    SET_PROP "system" "ro.mediatek.wlan.p2p" "1"
+    SET_PROP "system" "ro.mediatek.wlan.wsc" "1"
+    SET_PROP "system" "ro.mtk_perf_fast_start_win" "1"
+    SET_PROP "system" "ro.mtk_perf_response_time" "1"
+    SET_PROP "system" "ro.mtk_perf_simple_start_win" "1"
+    SET_PROP "system" "ro.opengles.version" "196610"
+    SET_PROP "system" "ro.property_service.async_persist_writes" "true"
+    SET_PROP "system" "ro.surface_flinger.game_default_frame_rate_override" "60"
+    SET_PROP "system" "ro.sys.usb.bicr" "no"
+    SET_PROP "system" "ro.sys.usb.charging.only" "yes"
+    SET_PROP "system" "ro.sys.usb.mtp.whql.enable" "0"
+    SET_PROP "system" "ro.sys.usb.storage.type" "mtp"
+    SET_PROP "system" "ro.vendor.customer_logpath" "/data"
+    SET_PROP "system" "ro.vendor.have_aee_feature" "1"
+    SET_PROP "system" "ro.vendor.mtk_flv_playback_support" "1"
+    SET_PROP "system" "ro.vendor.mtk_omacp_support" "1"
+    SET_PROP "system" "ro.vendor.mtk_telephony_add_on_policy" "0"
+    SET_PROP "system" "ro.vendor.system.mtk_dmc_support" "1"
+    SET_PROP "system" "ro.zygote.preload.enable" "0"
+    SET_PROP "system" "sys.ipo.disable" "1"
+    SET_PROP "system" "sys.ipo.pwrdncap" "2"
+    SET_PROP "system" "vendor.af.dynamic.sleeptime.enable" "true"
+    SET_PROP "system" "vendor.af.pausewait.enable" "false"
+    SET_PROP "system" "vendor.af.threshold.src_and_effect_count" "5"
+    SET_PROP "system" "vendor.mtk_thumbnail_optimization" "true"
+    SET_PROP "system" "vendor.rild.libargs" "-d /dev/ttyC0"
+    SET_PROP "system" "wifi.direct.interface" "p2p0"
+    SET_PROP "system" "wifi.interface" "wlan0"
+    SET_PROP "system" "wifi.tethering.interface" "ap0"
+
     else
     echo "Target device is not a Mediatek. Ignoring"
 fi
