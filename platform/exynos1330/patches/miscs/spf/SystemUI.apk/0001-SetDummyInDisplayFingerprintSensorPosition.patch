@@ -1,0 +1,96 @@
+From 85d262b3fccc0dd1d46efc9dc9c4b94b02c61fef Mon Sep 17 00:00:00 2001
+From: ley <chinoidlacaille0@gmail.com>
+Date: Mon, 9 Jun 2025 13:58:23 +0200
+Subject: [PATCH] SetDummyInDisplayFingerprintSensorPosition
+
+---
+ .../android/systemui/util/DeviceState.smali   | 65 +++++--------------
+ 1 file changed, 18 insertions(+), 47 deletions(-)
+
+diff --git a/smali_classes3/com/android/systemui/util/DeviceState.smali b/smali_classes3/com/android/systemui/util/DeviceState.smali
+index 70c9849..713651a 100644
+--- a/smali_classes3/com/android/systemui/util/DeviceState.smali
++++ b/smali_classes3/com/android/systemui/util/DeviceState.smali
+@@ -2628,61 +2628,32 @@
+ .end method
+ 
+ .method public static setInDisplayFingerprintSensorPosition(Landroid/util/DisplayMetrics;)V
+-    .locals 4
+-
+-    invoke-static {}, Lcom/android/systemui/util/DeviceState;->readFingerprintSensor()V
+-
+-    sget-object v0, Lcom/android/systemui/util/DeviceState;->sSemSensorImageSize:Ljava/lang/String;
+-
+-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+-
+-    move-result v0
+-
+-    const/4 v1, 0x5
+-
+-    invoke-static {v1, v0, p0}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+-
+-    move-result v0
+-
+-    sget-object v2, Lcom/android/systemui/util/DeviceState;->sSemSensorMarginBottom:Ljava/lang/String;
+-
+-    invoke-static {v2}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+-
+-    move-result v2
+-
+-    invoke-static {v1, v2, p0}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+-
+-    move-result v2
+-
+-    sget-object v3, Lcom/android/systemui/util/DeviceState;->sSemSensorAreaHeight:Ljava/lang/String;
+-
+-    invoke-static {v3}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+-
+-    move-result v3
+-
+-    invoke-static {v1, v3, p0}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+-
+-    move-result p0
+-
+-    float-to-int v1, v2
+-
+-    float-to-int p0, p0
+-
+-    div-int/lit8 p0, p0, 0x2
++    .locals 3
+ 
+-    add-int/2addr p0, v1
++    const/4 v0, 0x1
++    sput-boolean v0, Lcom/android/systemui/util/DeviceState;->sLoadedSensorValue:Z
+ 
+-    float-to-int v0, v0
++    const-string v1, "50"
++    sput-object v1, Lcom/android/systemui/util/DeviceState;->sSemSensorMarginBottom:Ljava/lang/String;
+ 
+-    div-int/lit8 v2, v0, 0x2
++    const-string v1, "200"
++    sput-object v1, Lcom/android/systemui/util/DeviceState;->sSemSensorAreaHeight:Ljava/lang/String;
+ 
+-    add-int/2addr v2, p0
++    const-string v1, "100"
++    sput-object v1, Lcom/android/systemui/util/DeviceState;->sSemSensorImageSize:Ljava/lang/String;
+ 
+-    sput v2, Lcom/android/systemui/util/DeviceState;->sInDisplayFingerprintHeight:I
++    const/4 v2, 0x5
++    const/high16 v1, 0x42c80000
++    invoke-static {v2, v1, p0}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
++    move-result v1
++    float-to-int v1, v1
++    sput v1, Lcom/android/systemui/util/DeviceState;->sInDisplayFingerprintHeight:I
+ 
++    const/16 v0, 0x64
+     sput v0, Lcom/android/systemui/util/DeviceState;->sInDisplayFingerprintImageSize:I
+ 
+-    sput v1, Lcom/android/systemui/util/DeviceState;->sInDisplayFingerprintMarginBottom:I
++    const/16 v0, 0x32
++    sput v0, Lcom/android/systemui/util/DeviceState;->sInDisplayFingerprintMarginBottom:I
+ 
+     return-void
+ .end method
+-- 
+2.43.0
+
