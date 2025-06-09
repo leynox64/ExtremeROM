@@ -254,14 +254,14 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/a2dp_in_audio_policy_configuration.xml"
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/audio_policy_configuration.xml"
 
-    DELETE_FROM_WORK_DIR "system_ext" "etc/vintf"
-    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/vintf"
-
     DELETE_FROM_WORK_DIR "system_ext" "etc/init"
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/init"
 
     DELETE_FROM_WORK_DIR "system_ext" "etc/selinux"
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/selinux"
+
+    DELETE_FROM_WORK_DIR "odm" "etc/selinux"
+    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "odm" "etc/selinux"
 
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/permissions/system-ext-permissions-mediatek.xml"
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system_ext" "etc/sysconfig/com.mediatek.ims.config.xml"
@@ -274,6 +274,70 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     ADD_JAR_TO_CLASSPATH "bootclasspath" "DEX2OATBOOTCLASSPATH" "/system_ext/framework/mediatek-ims-base.jar"
 
     SET_METADATA "system" "system/framework/framework-res.apk" 0 0 644 "u:object_r:system_mtk_pmb_file:s0"
+
+    #Add Needed Libs
+    BLOBS_LIST="
+    system/bin/audioserver
+    system/bin/bootanimation
+    system/bin/heatmap
+    system/bin/remotedisplay
+    system/bin/surfaceflinger
+    system/etc/init/surfaceflinger.rc
+    system/etc/public.libraries-edensdk.samsung.txt
+    system/etc/ueventd.rc
+    system/etc/vintf/compatibility_matrix.202404.xml
+    system/etc/vintf/compatibility_matrix.5.xml
+    system/etc/vintf/compatibility_matrix.6.xml
+    system/etc/vintf/compatibility_matrix.7.xml
+    system/etc/vintf/compatibility_matrix.8.xml
+    system/etc/vintf/compatibility_matrix.device.xml
+    system/etc/vintf/manifest.xml
+    system/lib64/android.hardware.graphics.composer3-V1-ndk.so
+    system/lib64/android.hardware.graphics.extension.composer3-V1-ndk.so
+    system/lib64/hidl_tlc_blockchain_comm_client.so
+    system/lib64/hidl_tlc_payment_comm_client.so
+    system/lib64/libSurfaceFlingerProp.so
+    system/lib64/libandroid_runtime.so
+    system/lib64/libandroid_runtime_lazy.so
+    system/lib64/libaudiopolicy.so
+    system/lib64/libaudiopolicycomponents.so
+    system/lib64/libaudiopolicyengineconfigurable.so
+    system/lib64/libaudiopolicyenginedefault.so
+    system/lib64/libaudiopolicymanagerdefault.so
+    system/lib64/libeden_nn_on_system.so
+    system/lib64/libeden_rt_stub.edensdk.samsung.so
+    system/lib64/libgui.so
+    system/lib64/libui.so
+    system/lib64/libhdcp2.so
+    system/lib64/libhdcp_client_aidl.so
+    system/lib64/libhidl_comm_mpos_tui_client.so
+    system/lib64/libremotedesktopservice.so
+    system/lib64/libremotedisplay.so
+    system/lib64/libremotedisplay_wfd.so
+    system/lib64/libremotedisplayservice.so
+    system/lib64/librepeater.so
+    system/lib64/libsamsung_keystore_utils.so
+    system/lib64/libsecuibc.so
+    system/lib64/libstagefright_hdcp.so
+    system/lib64/libteecl_aidl.so
+    system/lib64/libtlc_blockchain_comm.so
+    system/lib64/libtlc_blockchain_direct_comm.so
+    system/lib64/libtlc_blockchain_keystore.so
+    system/lib64/libtlc_payment_comm.so
+    system/lib64/libtlc_payment_direct_comm.so
+    system/lib64/libtlc_payment_spay.so
+    system/lib64/libtsmux.so
+    system/lib64/libtui_service_jni.so
+    system/lib64/vendor.samsung.hardware.security.hdcp.wifidisplay-V2-ndk.so
+    system/lib64/vendor.samsung.hardware.tlc.blockchain@1.0.so
+    system/lib64/vendor.samsung.hardware.tlc.payment@1.0.so
+    system/lib64/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
+    system/lib64/vendor.samsung_slsi.hardware.eden_runtime@1.0.so
+    "
+    for blob in $BLOBS_LIST
+    do
+        ADD_TO_WORK_DIR "e2sxxx" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
+    done
 
     # Set MSSI Props
     SET_PROP "system" "ro.build.product" "mssi"
