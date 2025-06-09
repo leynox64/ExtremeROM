@@ -34,7 +34,7 @@ TARGET_INSTALL_METHOD=zip
 TARGET_BOOT_DEVICE_PATH="/dev/block/by-name"
 
 # SEC Product Feature
-TARGET_AUTO_BRIGHTNESS_TYPE="5"
+TARGET_AUTO_BRIGHTNESS_TYPE="2"
 TARGET_DVFS_CONFIG_NAME="dvfs_policy_default"
 TARGET_NFC_CHIP_VENDOR="none"
 TARGET_FP_SENSOR_CONFIG="google_touch_display_side,settings=3"
