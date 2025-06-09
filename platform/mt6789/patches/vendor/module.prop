@@ -1,0 +1,4 @@
+id=debug
+name=Logcat Debug
+author=leynox64
+description=Adds an Debug Init for early logcats.
