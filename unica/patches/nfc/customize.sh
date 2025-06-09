@@ -22,5 +22,13 @@ if [ "$TARGET_NFC_CHIP_VENDOR" = "SLSI" ]; then
     SET_METADATA "system" "system/priv-app/NfcNci/lib/arm64/libnfc_sec_jni.so" 0 0 644 "u:object_r:system_file:s0"
 
 else
+
+if [ "$TARGET_NFC_CHIP_VENDOR" = "none" ]; then
+    echo "Deleting NFC blobs"
+
+    DELETE_FROM_WORK_DIR "system" "system/lib64/libnfc_nxpsn_jni.so"
+    DELETE_FROM_WORK_DIR "system" "system/priv-app/NfcNci"
+
+else  
     echo "NXP NFC found. Ignoring."
 fi
