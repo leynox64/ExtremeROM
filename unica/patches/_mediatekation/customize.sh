@@ -283,7 +283,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     system/bin/remotedisplay
     system/bin/surfaceflinger
     system/etc/init/surfaceflinger.rc
-    system/etc/public.libraries-edensdk.samsung.txt
     system/etc/ueventd.rc
     system/etc/vintf/compatibility_matrix.202404.xml
     system/etc/vintf/compatibility_matrix.5.xml
@@ -304,8 +303,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     system/lib64/libaudiopolicyengineconfigurable.so
     system/lib64/libaudiopolicyenginedefault.so
     system/lib64/libaudiopolicymanagerdefault.so
-    system/lib64/libeden_nn_on_system.so
-    system/lib64/libeden_rt_stub.edensdk.samsung.so
     system/lib64/libgui.so
     system/lib64/libui.so
     system/lib64/libhdcp2.so
@@ -332,7 +329,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     system/lib64/vendor.samsung.hardware.tlc.blockchain@1.0.so
     system/lib64/vendor.samsung.hardware.tlc.payment@1.0.so
     system/lib64/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
-    system/lib64/vendor.samsung_slsi.hardware.eden_runtime@1.0.so
     "
     for blob in $BLOBS_LIST
     do
@@ -456,5 +452,5 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "m
     SET_PROP "system" "wifi.tethering.interface" "ap0"
 
     else
-    echo "Target device is not a Mediatek. Ignoring"
+    echo "Target device is not a Mediatek device. Ignoring"
 fi
