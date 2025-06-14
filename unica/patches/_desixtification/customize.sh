@@ -15,7 +15,7 @@ if [ $TARGET_CODENAME == "a15" ]; then
     "
     for blob in $BLOBS_LIST
     do
-        ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644 "u:object_r:system_file:s0"
+        ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644
     done
 
     BLOBS_LIST="
@@ -24,7 +24,7 @@ if [ $TARGET_CODENAME == "a15" ]; then
     "
     for blob in $BLOBS_LIST
     do
-        ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644 "u:object_r:system_linker_exec:s0"
+        ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644
     done
 else
     ADD_TO_WORK_DIR "dm3qxxx" "system" "system/lib" 0 0 644 "u:object_r:system_lib_file:s0"
