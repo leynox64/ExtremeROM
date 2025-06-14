@@ -25,7 +25,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "qssi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     do
         ADD_TO_WORK_DIR "dm3qxxx" "system" "$blob"
     done
-fi
 
     # Set props
     echo "Setting props..."
