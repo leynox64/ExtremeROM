@@ -209,7 +209,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     system/bin
     system/etc
     system/framework
-    system/priv-app
     "
     for blob in $BLOBS_LIST
     do
