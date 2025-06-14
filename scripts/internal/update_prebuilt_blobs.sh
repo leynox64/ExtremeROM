@@ -64,7 +64,7 @@ fi
 
 case "$1" in
     "prebuilts/samsung/a26xxx")
-        FIRMWARE="SM-A266B/EUX/350999641234561"
+        FIRMWARE="SM-A266B/EUX/350439761193107"
         ;;
     "prebuilts/samsung/a73xqxx")
         FIRMWARE="SM-A736B/SEK/352828291234563"
