@@ -54,3 +54,7 @@ framework/oat/arm64/org.carconnectivity.android.digitalkey.rangingintent.vdex
 framework/oat/arm64/org.carconnectivity.android.digitalkey.secureelement.odex
 framework/oat/arm64/org.carconnectivity.android.digitalkey.secureelement.vdex
 "
+
+# mAFPC
+SYSTEM_DEBLOAT+="
+system/bin/mafpc_write
