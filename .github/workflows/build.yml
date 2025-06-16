@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [a54x, a14x, a15]
+        target: [a54x]
 
     steps:
       - name: Checkout repo
