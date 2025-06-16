@@ -58,3 +58,4 @@ framework/oat/arm64/org.carconnectivity.android.digitalkey.secureelement.vdex
 # mAFPC
 SYSTEM_DEBLOAT+="
 system/bin/mafpc_write
+"
