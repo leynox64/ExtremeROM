@@ -74,3 +74,7 @@ system/priv-app/SCameraSDKService
 system/priv-app/sec_camerax_service
 system/priv-app/VideoScan
 "
+
+# mAFPC
+SYSTEM_DEBLOAT+="
+system/bin/mafpc_write
