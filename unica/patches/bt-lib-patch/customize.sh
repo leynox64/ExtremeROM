@@ -15,6 +15,12 @@ if [ ! -f "$WORK_DIR/system/system/lib64/libbluetooth_jni.so" ]; then
     SET_METADATA "system" "system/lib64/libbluetooth_jni.so" 0 0 644 "u:object_r:system_lib_file:s0"
 fi
 
+if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "mssi" ]]; then
+# https://github.com/3arthur6/BluetoothLibraryPatcher/blob/425bb59da6505c962a38c143137698849b01d470/hexpatch.sh#L12
+HEX_PATCH "$WORK_DIR/system/system/lib64/libbluetooth_jni.so" \
+    "6804003528008052" "2b00001428008052"
+else
 # https://github.com/3arthur6/BluetoothLibraryPatcher/blob/425bb59da6505c962a38c143137698849b01d470/hexpatch.sh#L12
 HEX_PATCH "$WORK_DIR/system/system/lib64/libbluetooth_jni.so" \
     "480500352800805228cb1e39" "2a0000142800805228cb1e39"
+fi
