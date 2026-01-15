@@ -3,6 +3,8 @@ if [ "$TARGET_NFC_CHIP_VENDOR" = "SLSI" ]; then
 
     DELETE_FROM_WORK_DIR "system" "system/lib64/libnfc_nxpsn_jni.so"
     DELETE_FROM_WORK_DIR "system" "system/priv-app/NfcNci/lib/arm64/libnfc_nxpsn_jni.so"
+    DELETE_FROM_WORK_DIR "system" "system/lib64/vendor.samsung.hardware.nfc@2.0.so"
+    DELETE_FROM_WORK_DIR "system" "system/lib64/vendor.samsung.hardware.nfc_aidl-V1-ndk.so"
 
     ADD_TO_WORK_DIR "e2sxxx" "system" "system/etc/libnfc-nci.conf" 0 0 644 "u:object_r:system_file:s0"
 
@@ -21,6 +23,14 @@ if [ "$TARGET_NFC_CHIP_VENDOR" = "SLSI" ]; then
     ln -sf "/system/lib64/libnfc_sec_jni.so" "$WORK_DIR/system/system/priv-app/NfcNci/lib/arm64/libnfc_sec_jni.so"
     SET_METADATA "system" "system/priv-app/NfcNci/lib/arm64/libnfc_sec_jni.so" 0 0 644 "u:object_r:system_file:s0"
 
-else
+elif [ "$TARGET_NFC_CHIP_VENDOR" = "none" ]; then
+    echo "Deleting NFC blobs"
+
+    DELETE_FROM_WORK_DIR "system" "system/lib64/libnfc_nxpsn_jni.so"
+    DELETE_FROM_WORK_DIR "system" "system/priv-app/NfcNci"
+    DELETE_FROM_WORK_DIR "system" "system/lib64/vendor.samsung.hardware.nfc@2.0.so"
+    DELETE_FROM_WORK_DIR "system" "system/lib64/vendor.samsung.hardware.nfc_aidl-V1-ndk.so"
+
+else  
     echo "NXP NFC found. Ignoring."
 fi
