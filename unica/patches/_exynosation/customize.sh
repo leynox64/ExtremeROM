@@ -155,7 +155,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     system/etc/vintf/manifest.xml
     system/framework/com.android.nfc_extras.jar
     system/framework/displayaiqe_svc.jar
-    system/framework/ssrm.jar
     system/framework/vendor.samsung_slsi.telephony.hardware.oemservice-V1-java.jar
     system/lib64/android.hardware.graphics.composer3-V1-ndk.so
     system/lib64/android.hardware.graphics.extension.composer3-V1-ndk.so
@@ -172,6 +171,7 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     system/lib64/libeden_nn_on_system.so
     system/lib64/libeden_rt_stub.edensdk.samsung.so
     system/lib64/libgui.so
+    system/lib64/libui.so
     system/lib64/libhdcp2.so
     system/lib64/libhdcp_client_aidl.so
     system/lib64/libhidl_comm_mpos_tui_client.so
@@ -197,9 +197,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     system/lib64/vendor.samsung.hardware.tlc.payment@1.0.so
     system/lib64/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
     system/lib64/vendor.samsung_slsi.hardware.eden_runtime@1.0.so
-    system/priv-app/SamsungDeviceHealthManagerService/SamsungDeviceHealthManagerService.apk
-    system/priv-app/SamsungDeviceHealthManagerService/oat/arm64/SamsungDeviceHealthManagerService.odex
-    system/priv-app/SamsungDeviceHealthManagerService/oat/arm64/SamsungDeviceHealthManagerService.vdex
     "
     for blob in $BLOBS_LIST
     do
@@ -212,7 +209,6 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     system/bin
     system/etc
     system/framework
-    system/priv-app
     "
     for blob in $BLOBS_LIST
     do
@@ -228,6 +224,12 @@ if [[ $TARGET_SINGLE_SYSTEM_IMAGE == "essi" || $TARGET_SINGLE_SYSTEM_IMAGE == "e
     SET_METADATA "system" "system/app/TEEgrisTuiService/lib" 0 0 755 "u:object_r:system_file:s0"
     SET_METADATA "system" "system/app/TEEgrisTuiService/lib/arm64" 0 0 755 "u:object_r:system_file:s0"
     SET_METADATA "system" "system/app/TEEgrisTuiService/lib/arm64/libtui_service_jni.so" 0 0 644 "u:object_r:system_file:s0"
+
+    # Set ESSI Props
+    SET_PROP "system" "ro.build.product" "essi"
+    SET_PROP "system" "ro.product.system.device" "essi"
+    SET_PROP "system_ext" "ro.product.system_ext.device" "essi"
+    SET_PROP "product" "ro.product.product.device" "essi"
 
     # Remove Qualcomm Props
     SET_PROP "system" "rild.libpath" --delete

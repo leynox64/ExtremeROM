@@ -1,0 +1,4 @@
+id=midas
+name=MIDAS Fix
+author=ley
+description=Fixes MIDAS model detection on A54.
