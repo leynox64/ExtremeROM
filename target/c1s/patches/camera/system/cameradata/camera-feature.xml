@@ -195,7 +195,7 @@
 	
     <local name="SUPPORT_ZOOM_MAP_VIEW" value="true"/>
 
-    <local name="SUPPORT_POST_PROCESSING_MOTION_PHOTO" value="true"/>
+    <local name="SUPPORT_POST_PROCESSING_MOTION_PHOTO" value="false"/>
 
     <local name="SUPPORT_FLASH_IN_WIDE_LENS" value="true"/>
 
@@ -239,4 +239,8 @@
     <local name="SUPPORT_CAMERA_ASSISTANT_AUTO_LENS_SWITCHING_TEMP" value="true"/>
     <local name="SUPPORT_CAMERA_ASSISTANT_FAST_SHUTTER" value="true"/>
     <local name="SUPPORT_CAMERA_ASSISTANT_SOFTEN_PICTURE" value="true"/>
+
+    <!-- ExtremeROM -->
+    <local name="SUPPORT_DEFAULT_HEVC" value="true"/>
+    <local name="SUPPORT_LOG_VIDEO" value="true"/>
 </resources>
