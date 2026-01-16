@@ -39,3 +39,25 @@ system/priv-app/SCameraSDKService
 system/priv-app/sec_camerax_service
 system/priv-app/VideoScan
 "
+
+# Wi-Fi Hotspot Overlays
+PRODUCT_DEBLOAT+="
+overlay/SoftapOverlay6GHz
+overlay/SoftapOverlayDualAp
+overlay/SoftapOverlayOWE
+"
+
+# StorageShare (kSMBd)
+SYSTEM_DEBLOAT+="
+system/bin/ksmbd.addshare
+system/bin/ksmbd.adduser
+system/bin/ksmbd.control
+system/bin/ksmbd.mountd
+system/bin/ksmbd.tools
+system/etc/default-permissions/default-permissions-com.samsung.android.hwresourceshare.storage.xml
+system/etc/init/ksmbd.rc
+system/etc/permissions/privapp-permissions-com.samsung.android.hwresourceshare.storage.xml
+system/etc/sysconfig/preinstalled-packages-com.samsung.android.hwresourceshare.storage.xml
+system/etc/ksmbd.conf
+system/priv-app/StorageShare
+"
