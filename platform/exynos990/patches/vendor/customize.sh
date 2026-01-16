@@ -17,19 +17,26 @@ do
     DELETE_FROM_WORK_DIR "vendor" "$blob"
 done
 
-ADD_TO_WORK_DIR "p3sxxx" "vendor" "bin"
+ADD_TO_WORK_DIR "p3sxxx" "vendor" "bin/hw/rild"
+ADD_TO_WORK_DIR "p3sxxx" "vendor" "bin/hw/vendor.samsung.hardware.biometrics.face@3.0-service"
+ADD_TO_WORK_DIR "p3sxxx" "vendor" "bin/hw/vendor.samsung.hardware.vibrator-service"
 ADD_TO_WORK_DIR "p3sxxx" "vendor" "lib64"
 ADD_TO_WORK_DIR "p3sxxx" "vendor" "etc/init"
 ADD_TO_WORK_DIR "p3sxxx" "vendor" "etc/vintf"
 ADD_TO_WORK_DIR "p3sxxx" "vendor" "etc/mtu-conf.xml"
 ADD_TO_WORK_DIR "p3sxxx" "vendor" "etc/pdpcnt-conf.xml"
 
-# S21 Light HAL
+# WPA Supplicant HAL
+if [[ "$TARGET_CODENAME" != "r8s" ]]; then
+    ADD_TO_WORK_DIR "p3sxxx" "vendor" "bin/hw/wpa_supplicant"
+fi
+
+# Light HAL
 if [[ "$TARGET_CODENAME" != "r8s" ]]; then
     ADD_TO_WORK_DIR "p3sxxx" "vendor" "bin/hw/vendor.samsung.hardware.light-service"
     ADD_TO_WORK_DIR "p3sxxx" "vendor" "lib64/android.hardware.light-V1-ndk_platform.so"
     ADD_TO_WORK_DIR "p3sxxx" "vendor" "lib64/vendor.samsung.hardware.light-V1-ndk_platform.so"
-elif [[ "$TARGET_CODENAME" == "r8s" ]]; then
+else
     ADD_TO_WORK_DIR "a73xqxx" "vendor" "bin/hw/vendor.samsung.hardware.light-service"
     ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/android.hardware.light-V1-ndk_platform.so"
     ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/vendor.samsung.hardware.light-V1-ndk_platform.so"

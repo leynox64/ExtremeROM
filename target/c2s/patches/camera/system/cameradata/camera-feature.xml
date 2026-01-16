@@ -115,9 +115,12 @@
     <local name="SUPPORT_SEAMLESS_ZOOM" value="true"/>
     <local name="SUPPORT_WIDE_LENS_CORRECTION" value="true"/>
     <local name="BACK_WIDE_CAMERA_ID" value="2"/>
-    <local name="BACK_TELE_CAMERA_ZOOM_LEVEL" value="5.0"/>
+    <local name="BACK_TELE_CAMERA_ZOOM_LEVEL" value="3.0"/>
     <local name="BACK_TELE_CAMERA_ID" value="52"/>
-    <local name="DIGITAL_ZOOM_SHORTCUT_LIST" value="10.0, 20.0"/>
+    <local name="DIGITAL_ZOOM_SHORTCUT_LIST" value="5.0, 10.0"/>
+    <local name="SUPPORT_BACK_SECOND_TELE_CAMERA" value="true"/> 
+    <local name="BACK_SECOND_TELE_CAMERA_ID" value="52"/>
+    <local name="BACK_SECOND_TELE_CAMERA_ZOOM_LEVEL" value="5.0"/>
 
     <!-- Front dynamic FOV features -->
     <local name="FRONT_DYNAMIC_FOV_CAMERA_ID" value="3"/>
@@ -264,4 +267,8 @@
     <local name="SUPPORT_CAMERA_ASSISTANT_AUTO_LENS_SWITCHING_TEMP" value="true"/>
     <local name="SUPPORT_CAMERA_ASSISTANT_FAST_SHUTTER" value="true"/>
     <local name="SUPPORT_CAMERA_ASSISTANT_SOFTEN_PICTURE" value="true"/>
+
+    <!-- ExtremeROM -->
+    <local name="SUPPORT_DEFAULT_HEVC" value="true"/>
+    <local name="SUPPORT_LOG_VIDEO" value="true"/>
 </resources>

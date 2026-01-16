@@ -1,4 +1,4 @@
 id=nfc
 name=Stock NFC blobs
-author=ExtremeXT
-description=Replaces source NFC blobs with SLSI ones if necessary.
+author=ExtremeXT, leynox64
+description=Replaces source NFC blobs with SLSI ones or deletes NFC blobs.
