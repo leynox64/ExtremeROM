@@ -1,0 +1,4 @@
+id=spf
+name=SEC Product Feature
+author=leynox64
+description=Replaces Product Feature flags with target ones.
